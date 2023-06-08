@@ -17,7 +17,7 @@
 #echo $a
 # echo -e "value of the variables a is \e[32m $a\e[0m"
 # TODAYS_DATE = "08-06-2023"
-TODAYS_DATE= $(date +%D)
+TODAYS_DATE= $(date +%F)
 echo -e "Good morning and todays date is \e[32m $TODAYS_DATE \e[0m"
 NO_OF_SESSION=$(who | wc -l)
 echo -e "Number of opened sessions : \e[33m $NO_OF_SESSION \e[0m"

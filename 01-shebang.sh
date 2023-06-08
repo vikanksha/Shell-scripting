@@ -17,5 +17,5 @@
 #echo $a
 # echo -e "value of the variables a is \e[32m $a\e[0m"
 # TODAYS_DATE = "08-06-2023"
-TODAYS_DATE = $(date +%D)
-echo -e "Good morning and todays date is\e[34m $TODAYS_DATE\e[0m"
+echo - TODAYS_DATE = $(date +%D)
+echo -e "Good morning and todays date is \e[34m $TODAYS_DATE \e[0m"

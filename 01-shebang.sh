@@ -19,3 +19,5 @@
 # TODAYS_DATE = "08-06-2023"
 echo - TODAYS_DATE = $(date +%D)
 echo -e "Good morning and todays date is \e[32m $TODAYS_DATE \e[0m"
+NO_OF_SESSION=$(who | wc -1)
+echo -e "Number of opened sessions : \e[33m $NO_OF_SESSION \e[0m"

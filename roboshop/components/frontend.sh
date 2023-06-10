@@ -10,7 +10,6 @@ if  [$ID -ne 0] ; then
 fi
 
 echo "Installing Nginx :"
-
 yum install nginx -y  &>> "/tmp/${COMPONENT}.log"
 
 if [$? -eq 0 ] ; then
@@ -19,6 +18,9 @@ else
     echo -e "\e[31m failure \e[0m"
 
 fi    
+
+echo -n "Downloading the frontend component :"
+curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
 
 # Let's download the HTDOCS content and deploy it under the Nginx path.
 

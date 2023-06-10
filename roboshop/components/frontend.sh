@@ -1,5 +1,11 @@
 #!/bin/bash
 
+ID=$(id -u)
+if  [$ID -ne 0] ; then
+    echo -m "This script is expected to run by a root user or with sudo previledge"
+    exit 1
+fi
+
 echo "Installing nginx"
 
 yum install nginx -y

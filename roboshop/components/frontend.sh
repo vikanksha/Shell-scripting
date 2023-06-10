@@ -5,13 +5,14 @@ COMPONENT=frontend
 ID=$(id -u)
 
 if  [$ID -ne 0] ; then
-    echo -e "\e[33m This script is expected to run by a root user or with sudo previledge\e[0m"
+    echo -e "\e[33m This script is expected to run by a root user or with sudo previledge \e[0m"
     exit 1
 fi
 
-echo "Installing nginx"
+echo "Installing Nginx :"
 
-yum install nginx -y &>> "/tmp/${COMPONENT}.log"
+yum install nginx -y  &>> "/tmp/${COMPONENT}.log"
+
 if [$? -eq 0 ] ; then
     echo -e "\e[32m success \e[0m"
 else 

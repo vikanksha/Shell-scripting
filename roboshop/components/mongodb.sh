@@ -26,6 +26,7 @@ stat $?
 
 echo -n "Installing $COMPONENT : "
   yum install -y mongodb-org &>> LOGFILE
+  stat $?
   
 
 # Install Mongo & Start Service.

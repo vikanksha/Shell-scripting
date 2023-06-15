@@ -39,7 +39,14 @@ echo -n "Extracting ${COMPONENT} component :"
 unzip /tmp/${COMPONENT}.zip    &>> $LOGFILE
 mv static/* .          &>> $LOGFILE
 rm -rf ${COMPONENT}-main README.md
- stat $?
+mv localhost.conf /etc/nginx/default.d/roboshop.conf
+stat $?
+
+
+echo -n "Starting $COMPONENT service : "
+systemctl enable nginx
+systemctl start nginx
+stat $?
 
 
 

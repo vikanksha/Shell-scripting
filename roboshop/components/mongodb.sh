@@ -24,6 +24,10 @@ echo -n "Configuring the $COMPONENT repo :"
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
 stat $?
 
+echo -n "Installing $COMPONENT : "
+  yum install -y mongodb-org &>> LOGFILE
+  
+
 # Install Mongo & Start Service.
 
 # yum install -y mongodb-org

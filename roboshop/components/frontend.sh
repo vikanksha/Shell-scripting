@@ -1,6 +1,7 @@
 #!/bin/bash
 
 COMPONENT=frontend
+LOGFILE="/tmp/${COMPONENT}.log"
 
 ID=$(id -u)
 
@@ -20,7 +21,7 @@ stat() {
 }
 
 echo "Installing Nginx :"
-yum install nginx -y  &>> "/tmp/${COMPONENT}.log"
+yum install nginx -y  &>> $LOGFILE
 
 stat $? 
 
@@ -31,12 +32,17 @@ stat $?
 
 echo -n "performing cleanup: "
 cd /usr/share/nginx/html
-rm -rf * &>> "/tmp/${COMPONENT}.log"
-
+rm -rf *   &>> $LOGFILE
 stat $?
 
+echo -n "Extracting ${COMPONENT} component :"
+unzip /tmp/${COMPONENT}.zip    &>> $LOGFILE
+mv static/* .          &>> $LOGFILE
+rm -rf ${COMPONENT}-main README.md
+ stat $?
 
-# rm -rf *
+
+
 # unzip /tmp/frontend.zip
 # mv frontend-main/* .
 # mv static/* .

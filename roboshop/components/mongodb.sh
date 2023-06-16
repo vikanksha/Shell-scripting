@@ -36,6 +36,16 @@ echo -n "Installing $COMPONENT : "
 echo -n "Enabling the DB Visibility :"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 stat $?
+
+echo -n "Starting $COMPONENT : "
+ systemctl enable mongod &>> LOGFILE
+ systemctl start mongod &>> LOGFILE
+ stat $?
+
+
+
+
+
 # Install Mongo & Start Service.
 
 # yum install -y mongodb-org

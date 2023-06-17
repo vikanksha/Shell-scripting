@@ -43,29 +43,23 @@ echo -n "Starting $COMPONENT : "
  systemctl restart mongod  &>> LOGFILE
  stat $?
 
+echo -n "Downloading the $COMPONENT schema:"
+curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
+stat $?
 
 
 
 
-# Install Mongo & Start Service.
-
-# yum install -y mongodb-org
-# systemctl enable mongod
-# systemctl start mongod
-# 1. Update Listen IP address from 127.0.0.1 to 0.0.0.0 in the config file, so that MongoDB can be accessed by other services.
-
-  # Config file:   # vim /etc/mongod.conf
-
-# - Then restart the service
-
-# ```bash
-# systemctl restart mongod
-#```
 
   
 
 #- Every Database needs the schema to be loaded for the application to work.
+# curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
 
-#---
+# cd /tmp
+# unzip mongodb.zip
+# cd mongodb-main
+# mongo < catalogue.js
+# mongo < users.js
 
       #`Download the schema and inject it.`

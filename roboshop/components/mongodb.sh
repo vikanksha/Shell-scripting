@@ -25,12 +25,12 @@ curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans
 stat $?
 
 echo -n "Installing $COMPONENT : "
-  yum install -y $COMPONENT-org &>> LOGFILE
+  yum install -y $COMPONENT-org &>> $LOGFILE
   stat $?
 
  echo -n "Starting $COMPONENT : "
- systemctl enable mongod &>> LOGFILE
- systemctl start mongod &>> LOGFILE
+ systemctl enable mongod &>> $LOGFILE
+ systemctl start mongod &>> $LOGFILE
  stat $?
 
 echo -n "Enabling the DB Visibility :"
@@ -38,9 +38,9 @@ sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 stat $?
 
 echo -n "Starting $COMPONENT : "
- systemctl daemon-reload mongod  &>> LOGFILE
- systemctl enable mongod  &>> LOGFILE
- systemctl restart mongod  &>> LOGFILE
+ systemctl daemon-reload mongod  &>> $LOGFILE
+ systemctl enable mongod  &>> $LOGFILE
+ systemctl restart mongod  &>> $LOGFILE
  stat $?
 
 echo -n "Downloading the $COMPONENT schema:"
@@ -49,13 +49,13 @@ stat $?
 
 echo -n "Extracting the $COMPONENT schema:"
 cd /tmp
-unzip mongodb.zip &>> LOGFILE
+unzip -o mongodb.zip &>> $LOGFILE
 stat $?
 
 echo -n "Injecting the schema:"
 cd $COMPONENT-main
-mongo < catalogue.js   &>> LOGFILE
-mongo < users.js     &>> LOGFILE
+mongo < catalogue.js   &>> $LOGFILE
+mongo < users.js     &>> $LOGFILE
 stat $?
 
 

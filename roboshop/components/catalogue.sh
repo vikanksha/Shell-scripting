@@ -31,7 +31,7 @@ yum install nodejs -y   &>> $LOGFILE
 stat $?
 
 id $APPUSER &>> $LOGFILE
-if [$? -ne 0 ] ; then
+if [ $? -ne 0 ] ; then
     echo -n "creating the service account :"
     useradd $APPUSER &>> $LOGFILE
     stat $?
@@ -44,7 +44,8 @@ stat $?
 
 echo -n "Copying thr $COMPONENT to $APPUSER home directory :"
 cd /home${APPUSER}/
-unzip /tmp/catalogue.zip  &>> $LOGFILE
+rm -rf
+unzip -o /tmp/catalogue.zip  &>> $LOGFILE
 stat $?
 
 echo -n "Generating npm $COMPONENT artifacts :"

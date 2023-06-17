@@ -33,3 +33,13 @@ stat $?
 echo -n "creating the service account:"
 useradd roboshop
 stat $?
+
+echo -n "Downloading the $COMPONENT :"
+$ curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
+stat $?
+
+echo -n "Copying thr $COMPONENT to $APPUSER home directory :"
+cd /home${APPUSER}/
+unzip /tmp/catalogue.zip  &>> $LOGFILE
+stat $?
+

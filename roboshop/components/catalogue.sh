@@ -5,7 +5,7 @@ LOGFILE="/tmp/${COMPONENT}.log"
 
 ID=$(id -u)
 
-if  [$ID -ne 0] ; then
+if  [ $ID -ne 0 ] ; then
     echo -e "\e[33m This script is expected to run by a root user or with sudo previledge \e[0m"
     exit 1
 fi
@@ -49,7 +49,7 @@ unzip -o /tmp/catalogue.zip  &>> $LOGFILE
 stat $?
 
 echo -n "Generating npm $COMPONENT artifacts :"
-cd /home${APPUSER}/${COMPONENT}/
+cd /home/${APPUSER}/${COMPONENT}/
 npm install &>> $LOGFILE
 stat $?
 

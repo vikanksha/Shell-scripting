@@ -30,11 +30,15 @@ echo -n "Installing Nodejs:"
 yum install nodejs -y   &>> $LOGFILE
 stat $?
 
-echo -n "creating the service account:"
-useradd roboshop
-stat $?
+id $APPUSER &>> $LOGFILE
+if [$? -ne 0 ] ; then
+    echo -n "creating the service account :"
+    useradd $APPUSER &>> $LOGFILE
+    stat $?
+fi
 
-echo -n "Downloading the $COMPONENT :"
+
+echo -n "Downloading the $COMPONENT component :"
 $ curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
 stat $?
 

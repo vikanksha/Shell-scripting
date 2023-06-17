@@ -50,13 +50,13 @@ stat $?
 echo -n "Extracting the $COMPONENT schema:"
 cd /tmp
 unzip mongodb.zip &>> LOGFILE
-stat$?
+stat $?
 
 echo -n "Injecting the schema:"
-cd $COMPONENT.main
+cd $COMPONENT-main
 mongo < catalogue.js   &>> LOGFILE
 mongo < users.js     &>> LOGFILE
-stat$?
+stat $?
 
 
 

@@ -20,7 +20,7 @@ stat() {
     fi  
 }
 
-echo -e "************ \e[31m %$COMPONENT Installation has started \e[0m ************"
+echo -e "************ \e[35m $COMPONENT Installation has started \e[0m ************"
 
 echo -n "Configuring the $COMPONENT repo :"
 curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -  &>> $LOGFILE
@@ -47,3 +47,14 @@ cd /home${APPUSER}/
 unzip /tmp/catalogue.zip  &>> $LOGFILE
 stat $?
 
+echo -n "Generating npm $COMPONENT artifacts :"
+cd /home${APPUSER}/${COMPONENT}/
+npm install &>> $LOGFILE
+stat $?
+
+
+
+
+#mv catalogue-main catalogue
+#$ cd /home/roboshop/catalogue
+#$ npm install

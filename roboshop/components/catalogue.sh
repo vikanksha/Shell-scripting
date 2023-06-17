@@ -25,3 +25,11 @@ echo -e "************ \e[31m %$COMPONENT Installation has started \e[0m ********
 echo -n "Configuring the $COMPONENT repo :"
 curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -  &>> $LOGFILE
 stat $?
+
+echo -n "Installing Nodejs:"
+yum install nodejs -y   &>> $LOGFILE
+stat $?
+
+echo -n "creating the service account:"
+useradd roboshop
+stat $?

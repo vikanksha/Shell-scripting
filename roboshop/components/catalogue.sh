@@ -50,7 +50,7 @@ stat $?
 
 echo -n "Modifying the ownership :"
 mv $COMPONENT-main/ $COMPONENT
-chown -R $APPUSER:$APPUSER /home/roboshop/$COMPONENT/
+chown -R $APPUSER:$APPUSER /home/centos/roboshop/$COMPONENT/
 stat $?
 
 echo -n "Generating npm $COMPONENT artifacts :"

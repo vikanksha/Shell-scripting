@@ -43,7 +43,7 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalog
 stat $?
 
 echo -n "Copying thr $COMPONENT to $APPUSER home directory :"
-cd /home/${APPUSER}/
+cd /home/centos/${APPUSER}/
 rm -rf  ${COMPONENT}  &>> $LOGFILE
 unzip -o /tmp/catalogue.zip  &>> $LOGFILE
 stat $?
@@ -54,12 +54,12 @@ chown -R $APPUSER:$APPUSER /home/roboshop/$COMPONENT/
 stat $?
 
 echo -n "Generating npm $COMPONENT artifacts :"
-cd /home/${APPUSER}/${COMPONENT}/
+cd /home/centos/${APPUSER}/${COMPONENT}/
 npm install &>> $LOGFILE
 stat $?
 
 
-
+ #/home/centos/Shell-scripting/roboshop
 
 #mv catalogue-main catalogue
 #$ cd /home/roboshop/catalogue

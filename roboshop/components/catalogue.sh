@@ -42,21 +42,21 @@ echo -n "Downloading the $COMPONENT component :"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
 stat $?
 
-echo -n "Copying thr $COMPONENT to $APPUSER home directory :"
-cd /home/centos/${APPUSER}/
-rm -rf  ${COMPONENT}  &>> $LOGFILE
+echo -n "Copying the $COMPONENT to $APPUSER home directory :"
+cd /home/${APPUSER}/
+#rm -rf  ${COMPONENT}  &>> $LOGFILE
 unzip -o /tmp/catalogue.zip  &>> $LOGFILE
 stat $?
 
 echo -n "Modifying the ownership :"
 mv $COMPONENT-main/ $COMPONENT
-chown -R $APPUSER:$APPUSER /home/centos/roboshop/$COMPONENT/
+chown -R $APPUSER:$APPUSER /home/roboshop/$COMPONENT/
 stat $?
 
-echo -n "Generating npm $COMPONENT artifacts :"
-cd /home/centos/${APPUSER}/${COMPONENT}/
-npm install &>> $LOGFILE
-stat $?
+# echo -n "Generating npm $COMPONENT artifacts :"
+# cd /home/centos/${APPUSER}/${COMPONENT}/
+# npm install &>> $LOGFILE
+# stat $?
 
 
  #/home/centos/Shell-scripting/roboshop

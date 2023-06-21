@@ -46,7 +46,7 @@ stat $?
 
 echo -n "Copying the $COMPONENT to $APPUSER home directory :"
 cd /home/${APPUSER}/
-#rm -rf  ${COMPONENT}  &>> $LOGFILE
+rm -rf  ${COMPONENT}  &>> $LOGFILE
 unzip -o /tmp/catalogue.zip  &>> $LOGFILE
 stat $?
 
@@ -55,10 +55,10 @@ mv $COMPONENT-main/ $COMPONENT
 chown -R $APPUSER:$APPUSER /home/roboshop/$COMPONENT/
 stat $?
 
-# echo -n "Generating npm $COMPONENT artifacts :"
-# cd /home/centos/${APPUSER}/${COMPONENT}/
-# npm install &>> $LOGFILE
-# stat $?
+echo -n "Generating npm $COMPONENT artifacts :"
+cd /home/centos/${APPUSER}/${COMPONENT}/
+npm install &>> $LOGFILE
+stat $?
 
 
  #/home/centos/Shell-scripting/roboshop

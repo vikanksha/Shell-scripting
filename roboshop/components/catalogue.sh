@@ -2,6 +2,8 @@
 
 COMPONENT=catalogue
 LOGFILE="/tmp/${COMPONENT}.log"
+APPUSER="roboshop"
+
 
 ID=$(id -u)
 

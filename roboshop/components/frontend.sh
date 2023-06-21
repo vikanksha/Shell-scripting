@@ -43,12 +43,18 @@ rm -rf ${COMPONENT}-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
 
+for component in catalogue ; do 
+    sed -i -e "/$component/s/localhost/$component.roboshop.internal/"  /etc/nginx/default.d/roboshop.conf
+done 
+
 
 echo -n "Starting $COMPONENT service : "
+systemctl daemon-reload  &>> $LOGFILE
 systemctl enable nginx  &>> $LOGFILE
-systemctl start nginx   &>> $LOGFILE
+systemctl restart nginx   &>> $LOGFILE
 stat $?
 
+echo -e "************ \e[31m $COMPONENT Installation is completed \e[0m ************"
 
 
 # unzip /tmp/frontend.zip

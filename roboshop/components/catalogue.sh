@@ -71,7 +71,7 @@ systemctl enable $COMPONENT  &>> $LOGFILE
 systemctl restart $COMPONENT  &>> $LOGFILE
 stat $?
 
-echo -e "************ \e[31m %$COMPONENT Installation is completed \e[0m ************"
+echo -e "************ \e[35m $COMPONENT Installation is completed \e[0m ************"
 
 # mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 # systemctl daemon-reload

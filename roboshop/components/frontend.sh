@@ -43,10 +43,11 @@ rm -rf ${COMPONENT}-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
 
+echo -n "Updating the backend component reveseproxy details : "
 for component in catalogue ; do 
     sed -i -e "/$component/s/localhost/$component.roboshop.internal/"  /etc/nginx/default.d/roboshop.conf
 done 
-
+stat $? 
 
 echo -n "Starting $COMPONENT service : "
 systemctl daemon-reload  &>> $LOGFILE

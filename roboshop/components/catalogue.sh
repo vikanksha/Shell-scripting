@@ -56,7 +56,7 @@ chown -R $APPUSER:$APPUSER /home/roboshop/$COMPONENT/
 stat $?
 
 echo -n "Generating npm $COMPONENT artifacts :"
-cd /home/centos/${APPUSER}/${COMPONENT}/
+cd /home/${APPUSER}/${COMPONENT}/
 npm install &>> $LOGFILE
 stat $?
 

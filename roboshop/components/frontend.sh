@@ -5,7 +5,7 @@ LOGFILE="/tmp/${COMPONENT}.log"
 
 ID=$(id -u)
 
-if  [$ID -ne 0] ; then
+if [ $ID -ne 0 ] ; then
     echo -e "\e[33m This script is expected to run by a root user or with sudo previledge \e[0m"
     exit 1
 fi
@@ -19,6 +19,8 @@ stat() {
         exit 2
     fi  
 }
+
+echo -e "*********** \e[35m $COMPONENT Installation has started \e[0m ***********"
 
 echo "Installing Nginx :"
 yum install nginx -y  &>> $LOGFILE
@@ -55,7 +57,7 @@ systemctl enable nginx  &>> $LOGFILE
 systemctl restart nginx   &>> $LOGFILE
 stat $?
 
-echo -e "************ \e[31m $COMPONENT Installation is completed \e[0m ************"
+echo -e "************ \e[35m $COMPONENT Installation is completed \e[0m ************"
 
 
 # unzip /tmp/frontend.zip

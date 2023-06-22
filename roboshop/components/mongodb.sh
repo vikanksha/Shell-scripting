@@ -31,8 +31,8 @@ echo -n "Installing $COMPONENT : "
   stat $?
 
  echo -n "Starting $COMPONENT : "
- systemctl enable mongod &>> $LOGFILE
- systemctl start mongod &>> $LOGFILE
+ systemctl enable $COMPONENT &>> $LOGFILE
+ systemctl start $COMPONENT &>> $LOGFILE
  stat $?
 
 echo -n "Enabling the DB Visibility :"

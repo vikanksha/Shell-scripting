@@ -24,12 +24,10 @@ echo -e "*********** \e[35m $COMPONENT Installation has started \e[0m **********
 
 echo "Installing Nginx :"
 yum install nginx -y  &>> $LOGFILE
-
 stat $? 
 
 echo -n "Downloading the frontend component :"
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
-
 stat $?
 
 echo -n "performing cleanup: "

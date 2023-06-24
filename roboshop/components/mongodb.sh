@@ -1,6 +1,7 @@
 #!/bin/bash
 
 COMPONENT=mongodb
+
 LOGFILE="/tmp/${COMPONENT}.log"
 
 ID=$(id -u)
@@ -27,13 +28,8 @@ curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans
 stat $?
 
 echo -n "Installing $COMPONENT : "
-  yum install -y $COMPONENT-org &>> $LOGFILE
+  yum install -y $COMPONENT-org  &>> $LOGFILE
   stat $?
-
-echo -n "Starting $COMPONENT : "
-systemctl enable $COMPONENT &>> $LOGFILE
-systemctl start $COMPONENT &>> $LOGFILE
-stat $?
 
 echo -n "Enabling the DB Visibility :"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf

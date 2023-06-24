@@ -36,10 +36,10 @@ stat $?
 echo -n "Starting $COMPONENT :"
 systemctl daemon-reload $COMPONENT  &>> $LOGFILE
 systemctl enable $COMPONENT   &>> $LOGFILE
-sytemctl restart $COMPONENT   &>> $LOGFILE
+systemctl restart $COMPONENT   &>> $LOGFILE
 stat $?
 
-
+echo -e "*********** \e[35m $COMPONENT Installation is completed \e[0m ***********"
 
 # vim /etc/redis.conf
 # vim /etc/redis/redis.conf

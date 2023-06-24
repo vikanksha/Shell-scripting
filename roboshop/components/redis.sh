@@ -35,8 +35,8 @@ stat $?
 
 echo -n "Starting $COMPONENT :"
 systemctl daemon-reload $COMPONENT  &>> $LOGFILE
-systemctl start $COMPONENT   &>> $LOGFILE
-sytemctl status $COMPONENT   &>> $LOGFILE
+systemctl enable $COMPONENT   &>> $LOGFILE
+sytemctl restart $COMPONENT   &>> $LOGFILE
 stat $?
 
 

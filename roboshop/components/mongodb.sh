@@ -4,7 +4,7 @@ COMPONENT=mongodb
 
 source components/common.sh
 
-echo -e "************ \e[31m %$COMPONENT Installation has started \e[0m ************"
+echo -e "************ \e[31m $COMPONENT Installation has started \e[0m ************"
 
 echo -n "Configuring the $COMPONENT repo :"
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo

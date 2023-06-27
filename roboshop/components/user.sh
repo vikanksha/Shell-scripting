@@ -52,7 +52,9 @@ echo -n "Starting ${COMPONENT} service :"
     systemctl restart $COMPONENT &>> $LOGFILE
     stat $? 
 
-    
+echo -e "*********** \e[35m $COMPONENT Installation has Completed \e[0m ***********"
+
+
 # $ curl -s -L -o /tmp/user.zip "https://github.com/stans-robot-project/user/archive/main.zip"
 # $ cd /home/roboshop
 # $ unzip /tmp/user.zip

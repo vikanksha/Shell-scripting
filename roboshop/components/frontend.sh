@@ -28,7 +28,7 @@ mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $? 
 
 echo -n "Updating the Backend component reveseproxy details : "
-for component mongodb in catalogue user cart shipping payment; do
+for component in catalogue user; do
     sed -i -e "/$component/s/localhost/$component.roboshop.internal/"  /etc/nginx/default.d/roboshop.conf
 done 
 stat $? 

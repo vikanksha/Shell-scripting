@@ -15,3 +15,8 @@ echo -n "Installing $COMPONENT :"
 yum install rabbitmq-server -y  &>> LOGFILE
 stat $?
 
+echo -n "Starting $COMPONENT :"
+systemctl enable rabbitmq-server  &>> LOGFILE
+systemctl restart rabbitmq-server &>> LOGFILE
+stat $?
+

@@ -17,7 +17,7 @@ if [ $? -ne 0 ] ; then
 fi
 
 echo -n "Downloading the $COMPONENT component :"
-$ curl -L -s -o /tmp/payment.zip "https://github.com/stans-robot-project/payment/archive/main.zip"  &>> $LOGFILE
+$ curl -L -s -o /tmp/payment.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"  &>> $LOGFILE
 stat $?
 
 echo -n "Copying the $COMPONENT to $APPUSER home directory :"

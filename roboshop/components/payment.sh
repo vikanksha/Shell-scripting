@@ -32,7 +32,7 @@ chown -R $APPUSER:$APPUSER /home/roboshop/$COMPONENT/
 stat $?
 
 echo -n "Installing $COMPONENT :"
-cd /home/${APPUSER}/${COMPOMENT}/
+cd /home/${APPUSER}/${COMPONENT}/
 pip3 install -r requirements.txt  &>> $LOGFILE
 stat $?
 
